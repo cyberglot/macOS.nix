@@ -21,7 +21,21 @@
     userEmail = "april@cyberglot.me";
     signing.key = "0xD8CB8D10176A3C80";
     signing.signByDefault = true;
-    extraConfig.github.user = "cyberglot";
+    aliases = {
+      undo = "reset HEAD~1 --mixed";
+      amend = "commit -m --amend";
+      st = "status";
+      cl = "clone";
+      co = "checkout";
+      ci = "commit";
+    };
+    extraConfig = {
+      github.user = "cyberglot";
+      color.ui = "auto";
+      diff.external = "emacs";
+      pull.rebase = true;
+      init.defaultBranch = "main";
+    };
   };
 
   programs.gpg = {
@@ -31,7 +45,8 @@
     settings = {
       personal-cipher-preferences = "AES256 AES192 AES";
       personal-compress-preferences = "ZLIB BZIP2 ZIP Uncompressed";
-      default-preference-list = "SHA512 SHA384 SHA256 AES256 AES192 AES ZLIB BZIP2 ZIP Uncompressed";
+      default-preference-list =
+        "SHA512 SHA384 SHA256 AES256 AES192 AES ZLIB BZIP2 ZIP Uncompressed";
       cert-digest-algo = "SHA512";
       s2k-digest-algo = "SHA512";
       s2k-cipher-algo = "AES256";
@@ -57,8 +72,6 @@
     };
   };
 
-  services.gpg-agent = {
-    enable = true;
-  };
+  services.gpg-agent = { enable = true; };
 
 }
