@@ -103,6 +103,7 @@
       "sidenotes"
       "docker"
       "emacs-mac"
+      "zulip"
     ];
   };
 }
