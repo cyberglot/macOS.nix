@@ -39,7 +39,8 @@
     nix-prefetch-github
     texliveFull
     texlivePackages.texments
-    skimpdf
+    lean4
+    elan
   ];
 
   # TODO To make this work, homebrew need to be installed manually, see https://brew.sh
