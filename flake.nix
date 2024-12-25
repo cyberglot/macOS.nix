@@ -20,17 +20,16 @@
   # This is the standard format for flake.nix. `inputs` are the dependencies of the flake,
   # Each item in `inputs` will be passed as a parameter to the `outputs` function after being pulled and built.
   inputs = {
-    # nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
+    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    # nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.05-darwin";
     darwin = {
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
 
-    # FIXME: tracking a fork until issues discussed here are addressed
     #        https://github.com/nix-community/home-manager/issues/3864
     home-manager.url = "github:nix-community/home-manager";
-    home-manager-darwin.url = "github:cmacrae/home-manager/fix/gpg-agent_launchd";
+    home-manager-darwin.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };

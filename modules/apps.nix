@@ -24,8 +24,7 @@
     cachix
     (python3.withPackages (ps: with ps; [pip virtualenv]))
     devenv
-    nodejs_22 pnpm nodePackages_latest.prettier
-    ghc ghcid
+    # nodejs_22 pnpm nodePackages_latest.prettier
     rustc
     agda
     fish
@@ -41,6 +40,9 @@
     texlivePackages.texments
     lean4
     elan
+    home-manager
+    haskellPackages.agda2hs
+    agdaPackages.standard-library
   ];
 
   # TODO To make this work, homebrew need to be installed manually, see https://brew.sh

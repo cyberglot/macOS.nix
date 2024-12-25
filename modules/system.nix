@@ -1,13 +1,13 @@
 { config, pkgs, ... }:
 
-  ###################################################################################
-  #
-  #  macOS's System configuration
-  #
-  #  All the configuration options are documented here:
-  #    https://daiderd.com/nix-darwin/manual/index.html#sec-options
-  #
-  ###################################################################################
+###################################################################################
+#
+#  macOS's System configuration
+#
+#  All the configuration options are documented here:
+#    https://daiderd.com/nix-darwin/manual/index.html#sec-options
+#
+###################################################################################
 {
   system = {
     stateVersion = 5;
@@ -66,24 +66,17 @@
     nix-direnv.enable = true;
   };
 
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowBroken = true;
+
   # Fonts
   fonts = {
     packages = with pkgs; [
-      # icon fonts
       font-awesome
       emacs-all-the-icons-fonts
-
-      # nerdfonts
-      # https://github.com/NixOS/nixpkgs/blob/nixos-24.05/pkgs/data/fonts/nerdfonts/shas.nix
-      (nerdfonts.override {
-        fonts = [
-          "NerdFontsSymbolsOnly"
-          "Hack"
-          "FiraCode"
-          "JetBrainsMono"
-          "Iosevka"
-        ];
-      })
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
     ];
+
   };
 }

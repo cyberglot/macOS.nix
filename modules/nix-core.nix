@@ -8,7 +8,7 @@
 
     # substituers that will be considered before the official ones(https://cache.nixos.org)
     substituters = [
-      "https://cyberglot.cachix.org" 
+      "https://cyberglot.cachix.org"
       "https://mirror.sjtu.edu.cn/nix-channels/store"
       "https://nix-community.cachix.org"
     ];
