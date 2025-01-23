@@ -22,9 +22,8 @@
     wget
     just
     cachix
-    (python3.withPackages (ps: with ps; [pip virtualenv]))
     devenv
-    # nodejs_22 pnpm nodePackages_latest.prettier
+    nodejs_22
     rustc
     agda
     fish
@@ -36,13 +35,16 @@
     zstd
     nixfmt-classic
     nix-prefetch-github
-    texliveFull
-    texlivePackages.texments
-    lean4
-    elan
     home-manager
     haskellPackages.agda2hs
     agdaPackages.standard-library
+    agdaPackages.cubical
+    zellij
+    yt-dlp
+    stdenv.cc
+    pre-commit
+    pijul
+    nix-plugin-pijul
   ];
 
   # TODO To make this work, homebrew need to be installed manually, see https://brew.sh
@@ -107,6 +109,9 @@
       "docker"
       "emacs-mac"
       "zulip"
+      "vscodium"
+      "mattermost"
+      "zotero"
     ];
   };
 }
