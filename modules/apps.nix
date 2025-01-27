@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{ pkgs, ... }: {
 
   ##########################################################################
   #
@@ -23,28 +23,26 @@
     just
     cachix
     devenv
-    nodejs_22
-    rustc
-    agda
+    nodejs_23
     fish
     direnv
     ripgrep
-    typescript
     graphviz
     pandoc
     zstd
     nixfmt-classic
     nix-prefetch-github
     home-manager
-    haskellPackages.agda2hs
-    agdaPackages.standard-library
-    agdaPackages.cubical
-    zellij
     yt-dlp
     stdenv.cc
     pre-commit
-    pijul
-    nix-plugin-pijul
+    helix
+    astro-language-server
+    coreutils
+    fd
+    clang
+    aerospace
+    sketchybar
   ];
 
   # TODO To make this work, homebrew need to be installed manually, see https://brew.sh
@@ -74,15 +72,16 @@
       "homebrew/services"
       "nikitabobko/tap"
       "FelixKratz/formulae"
-      "railwaycat/emacsmacport"
+      "d12frosted/emacs-plus"
     ];
 
     # `brew install`
     brews = [
       "aspell"
       "gnu-tar"
-      "coreutils"
       "pygments"
+      "d12frosted/emacs-plus/emacs-plus@29"
+      "agda"
     ];
 
     # `brew install --cask`
@@ -107,7 +106,6 @@
       "fantastical"
       "sidenotes"
       "docker"
-      "emacs-mac"
       "zulip"
       "vscodium"
       "mattermost"

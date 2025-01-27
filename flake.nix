@@ -39,40 +39,31 @@
   # parameters in `outputs` are defined in `inputs` and can be referenced by their names.
   # However, `self` is an exception, this special parameter points to the `outputs` itself (self-reference)
   # The `@` syntax here is used to alias the attribute set of the inputs's parameter, making it convenient to use inside the function.
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    darwin,
-    home-manager,
-    ...
-  }: let
-    # TODO replace with your own username, system and hostname
-    username = "cyberglot";
-    system = "x86_64-darwin"; # aarch64-darwin or x86_64-darwin
-    hostname = "Aprils-MacBook-Pro";
+  outputs = inputs@{ self, nixpkgs, darwin, home-manager, ... }:
+    let
+      # TODO replace with your own username, system and hostname
+      username = "cyberglot";
+      system = "x86_64-darwin"; # aarch64-darwin or x86_64-darwin
+      hostname = "Aprils-MacBook-Pro";
 
-    specialArgs =
-      inputs
-      // {
-        inherit username hostname;
-      };
-  in {
-    darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {
-      inherit system specialArgs;
-      modules = [
-        home-manager.darwinModules.home-manager
+      specialArgs = inputs // { inherit username hostname; };
+    in {
+      darwinConfigurations."${hostname}" = darwin.lib.darwinSystem {
+        inherit system specialArgs;
+        modules = [
+          home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.cyberglot = import ./modules/home.nix;
           }
-        ./modules/nix-core.nix
-        ./modules/system.nix
-        ./modules/apps.nix
-        ./modules/host-users.nix
-      ];
+          ./modules/nix-core.nix
+          ./modules/system.nix
+          ./modules/apps.nix
+          ./modules/host-users.nix
+        ];
+      };
+      # nix code formatter
+      formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
     };
-    # nix code formatter
-    formatter.${system} = nixpkgs.legacyPackages.${system}.alejandra;
-  };
 }

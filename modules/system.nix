@@ -76,6 +76,12 @@
       emacs-all-the-icons-fonts
       nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
+      nerd-fonts._3270
+      nerd-fonts.roboto-mono
+      nerd-fonts.envy-code-r
+      nerd-fonts.comic-shanns-mono
+      nerd-fonts.fira-code
+      nerd-fonts.iosevka
     ];
 
   };
